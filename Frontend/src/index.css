@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.circle{
+    border-radius: 70%;
+}
+.h-w{
+    height: 30px;
+    width: 30px;
+}
