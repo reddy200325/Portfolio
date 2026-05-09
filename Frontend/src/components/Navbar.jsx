@@ -1,103 +1,282 @@
-import { useEffect, useRef } from 'react'
-import {Link} from "react-router-dom"
+import { useEffect, useRef, useState } from "react";
+
 import { MdArrowOutward } from "react-icons/md";
-import { TiArrowForward } from "react-icons/ti";
-import { CgMenuGridO } from "react-icons/cg";
-import { TiArrowBack } from "react-icons/ti";
+
+import {
+    FaGithub,
+    FaLinkedin,
+    FaWhatsapp,
+} from "react-icons/fa";
+
+import {
+    HiOutlineMenuAlt3,
+    HiX,
+} from "react-icons/hi";
 
 export default function Navbar() {
-    const sideMenuRef = useRef();
+
     const navRef = useRef();
-    const navLinkRef = useRef();
 
-    const openMenu = () => {
-        sideMenuRef.current.style.transform = 'translateX(-16rem)';
-    }
-    const closeMenu = () => {
-        sideMenuRef.current.style.transform = 'translateX(16rem)';
-    }
-    const toggleTheme = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
 
-        document.documentElement.classList.toggle('dark');
-
-        if (document.documentElement.classList.contains('dark')) {
-            localStorage.theme = 'dark';
-        } else {
-            localStorage.theme = 'light';
-        }
-    }
-
+    // Navbar Scroll Effect
     useEffect(() => {
 
-        window.addEventListener('scroll', () => {
-            if (scrollY > 50) {
-                navRef.current.classList.add('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm', 'dark:bg-darkTheme', 'dark:shadow-white/20');
-                navLinkRef.current.classList.remove('bg-white', 'shadow-sm', 'bg-opacity-50', 'dark:border', 'dark:border-white/30', "dark:bg-transparent");
+        const handleScroll = () => {
+
+            if (window.scrollY > 50) {
+
+                navRef.current.classList.add(
+                    "bg-black/70",
+                    "backdrop-blur-xl",
+                    "shadow-lg",
+                    "border-b",
+                    "border-white/10"
+                );
+
             } else {
-                navRef.current.classList.remove('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm', 'dark:bg-darkTheme', 'dark:shadow-white/20');
-                navLinkRef.current.classList.add('bg-white', 'shadow-sm', 'bg-opacity-50', 'dark:border', 'dark:border-white/30', "dark:bg-transparent");
+
+                navRef.current.classList.remove(
+                    "bg-black/70",
+                    "backdrop-blur-xl",
+                    "shadow-lg",
+                    "border-b",
+                    "border-white/10"
+                );
             }
-        })
+        };
 
-        // -------- light mode and dark mode -----------
+        window.addEventListener("scroll", handleScroll);
 
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark')
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
-    }, [])
+        return () =>
+            window.removeEventListener("scroll", handleScroll);
+
+    }, []);
 
     return (
         <>
-            <nav ref={navRef} className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+            {/* Navbar */}
+            <nav
+                ref={navRef}
+                className="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+            >
 
-              
-                    <img src="./reddy-logo.svg" alt="Logo" className="w-28 cursor-pointer mr-14 dark:hidden" />
-                    <img src="./reddy-logo.svg" alt="Logo" className="w-28 cursor-pointer mr-14 hidden dark:block" />
-                
+                <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-20 py-4 flex items-center justify-between">
 
-                <ul ref={navLinkRef} className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/30 dark:bg-transparent ">
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#top">Home</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#about">About me</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#services">My Projects</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#work">My Work</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#contact">Contact me</a></li>
-                </ul>
+                    {/* Logo */}
+                    <a
+                        href="#top"
+                        className="flex items-center gap-3"
+                    >
 
-                <div className="flex items-center gap-4">
-                    <button onClick={toggleTheme}>
-                        <img src="./assets/moon_icon.png" alt="" className="w-5 dark:hidden" />
-                        <img src="./assets/sun_icon.png" alt="" className="w-5 hidden dark:block" />
-                    </button>
+                        {/* Custom Logo */}
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-pink-500 to-orange-400 flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-orange-500/30">
+                            R
+                        </div>
 
-                    <Link to="#contact" className="hidden lg:flex items-center gap-3 px-8 py-1.5 border border-gray-300 hover:bg-slate-100/70 dark:hover:bg-darkHover rounded-full ml-4 font-Ovo dark:border-white/30">
-                        Contact
-                        <MdArrowOutward  className="w-3 dark:hidden" />
-                        <TiArrowForward  className="w-3 hidden dark:block" />
-                    </Link>
+                        <div className="hidden sm:block">
+                            <h2 className="text-white text-xl font-bold leading-none">
+                                Raghunadha
+                            </h2>
 
-                    <button className="block md:hidden ml-3" onClick={openMenu}>
-                        <CgMenuGridO  alt="" className="w-6 dark:hidden" />
-                        <CgMenuGridO  className="w-6 hidden dark:block" />
-                    </button>
+                            <p className="text-gray-400 text-sm">
+                                Full Stack Developer
+                            </p>
+                        </div>
+                    </a>
 
+                    {/* Desktop Menu */}
+                    <ul className="hidden lg:flex items-center gap-10 text-sm font-medium">
+
+                        {[
+                            {
+                                name: "Home",
+                                link: "#top",
+                            },
+                            {
+                                name: "About",
+                                link: "#about",
+                            },
+                            {
+                                name: "Services",
+                                link: "#services",
+                            },
+                            {
+                                name: "Projects",
+                                link: "#work",
+                            },
+                            {
+                                name: "Contact",
+                                link: "#contact",
+                            },
+                        ].map((item, index) => (
+
+                            <li key={index}>
+
+                                <a
+                                    href={item.link}
+                                    className="relative text-gray-300 hover:text-white transition duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-orange-400 hover:after:w-full after:transition-all"
+                                >
+                                    {item.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+
+                    {/* Right Side */}
+                    <div className="flex items-center gap-4">
+
+                        {/* Contact Button */}
+                        <a
+                            href="#contact"
+                            className="hidden md:flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-orange-400 hover:scale-105 transition duration-300 text-white font-medium shadow-lg shadow-orange-500/20"
+                        >
+
+                            Hire Me
+
+                            <MdArrowOutward className="text-lg" />
+                        </a>
+
+                        {/* Mobile Menu Button */}
+                        <button
+                            onClick={() =>
+                                setMenuOpen(true)
+                            }
+                            className="lg:hidden w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white"
+                        >
+
+                            <HiOutlineMenuAlt3 className="text-2xl" />
+                        </button>
+                    </div>
                 </div>
-                {/* -- ----- mobile menu ------  -- */}
-                <ul ref={sideMenuRef} className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 font-Ovo dark:bg-darkHover dark:text-white">
+            </nav>
 
-                    <div className="absolute right-6 top-6" onClick={closeMenu}>
-                        <TiArrowBack alt="" className="w-5 cursor-pointer dark:hidden" />
-                        <TiArrowBack alt="" className="w-5 cursor-pointer hidden dark:block" />
+            {/* Mobile Menu */}
+            <div
+                className={`fixed inset-0 z-[100] transition-all duration-500 ${
+                    menuOpen
+                        ? "visible bg-black/60 backdrop-blur-sm"
+                        : "invisible"
+                }`}
+            >
+
+                {/* Sidebar */}
+                <div
+                    className={`absolute top-0 right-0 h-full w-80 max-w-full bg-[#0f172a] border-l border-white/10 shadow-2xl p-8 transition-transform duration-500 ${
+                        menuOpen
+                            ? "translate-x-0"
+                            : "translate-x-full"
+                    }`}
+                >
+
+                    {/* Top */}
+                    <div className="flex justify-between items-center mb-14">
+
+                        <div className="flex items-center gap-3">
+
+                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-pink-500 to-orange-400 flex items-center justify-center text-white text-2xl font-bold">
+                                R
+                            </div>
+
+                            <div>
+                                <h2 className="text-white font-bold">
+                                    Raghunadha
+                                </h2>
+
+                                <p className="text-sm text-gray-400">
+                                    Developer
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Close */}
+                        <button
+                            onClick={() =>
+                                setMenuOpen(false)
+                            }
+                            className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white"
+                        >
+
+                            <HiX className="text-2xl" />
+                        </button>
                     </div>
 
-                    <li><Link to="#top" onClick={closeMenu}>Home</Link></li>
-                    <li><Link to="#about" onClick={closeMenu}>About me</Link></li>
-                    <li><Link to="#services" onClick={closeMenu}>Services</Link></li>
-                    <li><Link to="#work" onClick={closeMenu}>My Work</Link></li>
-                    <li><Link to="#contact" onClick={closeMenu}>Contact me</Link></li>
-                </ul>
-            </nav>
+                    {/* Links */}
+                    <ul className="flex flex-col gap-8 text-lg font-medium">
+
+                        {[
+                            {
+                                name: "Home",
+                                link: "#top",
+                            },
+                            {
+                                name: "About",
+                                link: "#about",
+                            },
+                            {
+                                name: "Services",
+                                link: "#services",
+                            },
+                            {
+                                name: "Projects",
+                                link: "#work",
+                            },
+                            {
+                                name: "Contact",
+                                link: "#contact",
+                            },
+                        ].map((item, index) => (
+
+                            <li key={index}>
+
+                                <a
+                                    href={item.link}
+                                    onClick={() =>
+                                        setMenuOpen(false)
+                                    }
+                                    className="text-gray-300 hover:text-orange-400 transition duration-300"
+                                >
+                                    {item.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+
+                    {/* Social Icons */}
+                    <div className="flex items-center gap-5 mt-16">
+
+                        <a
+                            href="https://github.com/reddy200325"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-orange-400 transition duration-300"
+                        >
+
+                            <FaGithub className="text-xl" />
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-blue-500 transition duration-300"
+                        >
+
+                            <FaLinkedin className="text-xl" />
+                        </a>
+
+                        <a
+                            href="https://wa.me/7013713251"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-green-500 transition duration-300"
+                        >
+
+                            <FaWhatsapp className="text-xl" />
+                        </a>
+                    </div>
+                </div>
+            </div>
         </>
-    )
+    );
 }

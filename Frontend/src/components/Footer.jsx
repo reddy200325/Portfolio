@@ -22,12 +22,14 @@ export default function Footer() {
                 {/* Top Section */}
                 <div className="flex flex-col items-center text-center">
 
-                    {/* Logo */}
-                    <img
-                        src="/reddy-logo.svg"
-                        alt="logo"
-                        className="w-40 mb-6 drop-shadow-xl"
-                    />
+                    {/* Custom Logo */}
+                    <div className="w-24 h-24 mb-6 rounded-3xl bg-gradient-to-r from-pink-500 to-orange-400 flex items-center justify-center shadow-2xl shadow-orange-500/30">
+
+                        <span className="text-4xl font-bold text-white">
+                            RR
+                        </span>
+
+                    </div>
 
                     {/* Title */}
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
