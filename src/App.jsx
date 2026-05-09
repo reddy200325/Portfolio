@@ -1,4 +1,4 @@
-import Contact from './components/Contact'
+import Contact from './components/Contactdetails'
 import Footer from './components/Footer'
 import Work from './components/Work'
 import Services from './components/Service'
