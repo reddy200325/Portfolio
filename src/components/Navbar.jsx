@@ -76,7 +76,7 @@ export default function Navbar() {
 
                         <div className="hidden sm:block">
                             <h2 className="text-white text-xl font-bold leading-none">
-                                Raghunadha
+                                RaghunadhaReddy
                             </h2>
 
                             <p className="text-gray-400 text-sm">
@@ -180,7 +180,7 @@ export default function Navbar() {
 
                             <div>
                                 <h2 className="text-white font-bold">
-                                    Raghunadha
+                                    RaghunadhaReddy
                                 </h2>
 
                                 <p className="text-sm text-gray-400">

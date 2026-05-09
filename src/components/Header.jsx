@@ -39,17 +39,29 @@ export default function Header() {
                     {/* Heading */}
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
 
-                        Hi, I&apos;m{" "}
+                        {/* Mobile + Tablet */}
+                        <span className="block lg:hidden">
+                            Hi, I&apos;m{" "}
 
-                        <span className="bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent">
-                            Raghunadha
+                            <span className="bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent">
+                                RaghunadhaReddy
+                            </span>
                         </span>
 
-                        <br />
+                        {/* Desktop */}
+                        <span className="hidden lg:block">
+                            Hi, I&apos;m
+                            <br />
 
-                        <span className="text-white">
+                            <span className="bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent">
+                                RaghunadhaReddy
+                            </span>
+                        </span>
+
+                        <span className="block text-white mt-2">
                             Full Stack Developer
                         </span>
+
                     </h1>
 
                     {/* Description */}
@@ -176,7 +188,7 @@ export default function Header() {
                             <div className="absolute -top-4 sm:-top-6 -right-2 sm:-right-6 bg-[#111827] border border-white/10 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 shadow-xl">
 
                                 <h2 className="text-2xl sm:text-3xl font-bold text-pink-400">
-                                    10+
+                                    5+
                                 </h2>
 
                                 <p className="text-gray-400 text-xs sm:text-sm">

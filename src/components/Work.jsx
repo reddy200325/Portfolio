@@ -11,7 +11,7 @@ export default function Work() {
     const work = [
         {
             name: "E-Commerce Website",
-            image: "./assets/work-1.png",
+            image: "./src/assets/work-1.png",
             category: "MERN Stack",
             description:
                 "Modern full stack e-commerce application with authentication, cart, Stripe payments, and admin dashboard.",
@@ -22,7 +22,7 @@ export default function Work() {
 
         {
             name: "Portfolio Website",
-            image: "./assets/work-2.png",
+            image: "./src/assets/work-2.png",
             category: "Frontend Development",
             description:
                 "Creative portfolio website with responsive UI, animations, dark theme, and smooth user experience.",
@@ -33,7 +33,7 @@ export default function Work() {
 
         {
             name: "Chat Application",
-            image: "./assets/work-3.png",
+            image: "./src/assets/work-3.png",
             category: "Realtime App",
             description:
                 "Realtime messaging application with authentication, online status, and responsive modern UI.",
@@ -44,7 +44,7 @@ export default function Work() {
 
         {
             name: "Admin Dashboard",
-            image: "./assets/work-4.png",
+            image: "./src/assets/work-4.png",
             category: "Dashboard UI",
             description:
                 "Professional admin dashboard with analytics, charts, authentication, and responsive layout.",
