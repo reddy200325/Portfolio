@@ -125,7 +125,7 @@ export default function Contact() {
                             </div>
 
                             {/* Social Links */}
-                            <div className="flex gap-5 mt-10">
+                            <div className="flex justify-center gap-5 mt-10">
 
                                 <a
                                     href="https://github.com/reddy200325"

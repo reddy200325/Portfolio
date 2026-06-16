@@ -73,17 +73,15 @@ export default function Header() {
 
                     </p>
 
-                    {/* Buttons */}
-                    <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 sm:gap-5 mt-10">
+                    {/* Buttons Container */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center lg:items-start lg:justify-start gap-4 sm:gap-5 mt-10">
 
                         {/* Contact */}
                         <a
                             href="#contact"
                             className="w-full sm:w-auto justify-center group px-7 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-orange-400 hover:scale-105 transition-all duration-300 shadow-xl shadow-orange-500/20 flex items-center gap-3 text-base sm:text-lg font-medium"
                         >
-
                             Contact Me
-
                             <FaArrowRight className="group-hover:translate-x-1 transition duration-300" />
                         </a>
 
@@ -93,9 +91,7 @@ export default function Header() {
                             download="Raghunadha_Reddy_Resume.pdf"
                             className="w-full sm:w-auto justify-center group px-7 py-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-3 text-base sm:text-lg font-medium"
                         >
-
                             Download CV
-
                             <RiFileDownloadFill className="text-xl group-hover:translate-y-1 transition duration-300" />
                         </a>
                     </div>
