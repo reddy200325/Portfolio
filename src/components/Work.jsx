@@ -1,4 +1,8 @@
 import { motion } from "framer-motion";
+import work1 from "../assets/work-1.png";
+import work2 from "../assets/work-2.png";
+import work3 from "../assets/work-3.png";
+import work4 from "../assets/work-4.png";
 
 import {
     FaArrowRight,
@@ -11,7 +15,7 @@ export default function Work() {
     const work = [
         {
             name: "E-Commerce Website",
-            image: "./src/assets/work-1.png",
+            image: work1,
             category: "MERN Stack",
             description:
                 "Modern full stack e-commerce application with authentication, cart, Stripe payments, and admin dashboard.",
@@ -22,7 +26,7 @@ export default function Work() {
 
         {
             name: "Portfolio Website",
-            image: "./src/assets/work-2.png",
+            image: work2,
             category: "Frontend Development",
             description:
                 "Creative portfolio website with responsive UI, animations, dark theme, and smooth user experience.",
@@ -33,7 +37,7 @@ export default function Work() {
 
         {
             name: "Chat Application",
-            image: "./src/assets/work-3.png",
+            image: work3,
             category: "Realtime App",
             description:
                 "Realtime messaging application with authentication, online status, and responsive modern UI.",
@@ -44,7 +48,7 @@ export default function Work() {
 
         {
             name: "Admin Dashboard",
-            image: "./src/assets/work-4.png",
+            image: work4,
             category: "Dashboard UI",
             description:
                 "Professional admin dashboard with analytics, charts, authentication, and responsive layout.",
