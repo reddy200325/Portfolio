@@ -38,7 +38,7 @@ export default function Work() {
             description:
                 "Realtime messaging application with authentication, online status, and responsive modern UI.",
             github: "https://github.com/reddy200325",
-            live: "#",
+            live: "https://sunochat.vercel.app/",
             tech: ["Socket.io", "React", "Express"],
         },
 
