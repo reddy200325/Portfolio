@@ -27,7 +27,7 @@ export default function Work() {
             description:
                 "Creative portfolio website with responsive UI, animations, dark theme, and smooth user experience.",
             github: "https://github.com/reddy200325",
-            live: "#",
+            live: "https://raghunadhareddy.vercel.app/",
             tech: ["React", "Tailwind", "Framer Motion"],
         },
 
