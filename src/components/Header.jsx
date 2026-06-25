@@ -6,7 +6,7 @@ import {
     FaWhatsapp,
 } from "react-icons/fa";
 
-import resumePDF from "../assets/resume.pdf";
+import resumePDF from "../assets/Raghunadhareddy_developer.pdf";
 
 export default function Header() {
 
@@ -88,7 +88,7 @@ export default function Header() {
                         {/* Resume */}
                         <a
                             href={resumePDF}
-                            download="Raghunadha_Reddy_Resume.pdf"
+                            download="Raghunadhareddy_developer.pdf"
                             className="w-full sm:w-auto justify-center group px-7 py-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-3 text-base sm:text-lg font-medium"
                         >
                             Download CV
